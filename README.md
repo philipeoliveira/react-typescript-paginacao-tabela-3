@@ -1,6 +1,6 @@
 # Paginação no React com TypeScript
 
-Código em React com Tailwind CSS e TypeScript que cria paginação de dados em uma tabela contendo quatro botões (primeira página, próxima, anterior e última).
+Código em React com Tailwind CSS e TypeScript que cria paginação de dados em uma tabela contendo quatro botões (primeira página, anterior, próxima e última).
 
 Os dados das páginas são fictícios, criados pela biblioteca fakerjs.
 
