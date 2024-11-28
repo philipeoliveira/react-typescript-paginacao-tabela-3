@@ -9,7 +9,7 @@ interface TableCellProps {
 
 export function TableCell({ children, otherClasses, colSpan }: TableCellProps) {
    return (
-      <td className={twMerge('py-2 px-3 text-zinc-400', otherClasses)} colSpan={colSpan}>
+      <td className={twMerge('py-2 px-4 text-zinc-400', otherClasses)} colSpan={colSpan}>
          {children}
       </td>
    );
