@@ -1,4 +1,4 @@
-import { UsersPagination } from './components/UsersPagination';
+import { PostsPagination } from './components/PostsPagination';
 import { ExternalLink } from 'lucide-react';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
                <h1 className='bg-zinc-400 text-zinc-950 text-4xl max-sm:text-3xl font-medium p-2 my-2 text-center rounded-lg'>
                   Paginação com React
                </h1>
-               <UsersPagination />
+               <PostsPagination />
             </div>
          </main>
          <footer>

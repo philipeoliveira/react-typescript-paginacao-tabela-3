@@ -8,7 +8,7 @@ import { TableRow } from './table/TableRow';
 import { usePagination } from '../hooks/usePagination';
 import { Pagination } from './Pagination';
 
-export function UsersPagination() {
+export function PostsPagination() {
    const {
       currentPage,
       limitPerPage,
@@ -33,14 +33,14 @@ export function UsersPagination() {
             <tbody>
                {data
                   .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
-                  .map((user) => {
+                  .map((item) => {
                      return (
-                        <TableRow key={user.id}>
-                           <TableCell>{user.id}</TableCell>
-                           <TableCell>{user.firstName}</TableCell>
-                           <TableCell>{user.lastName}</TableCell>
+                        <TableRow key={item.id}>
+                           <TableCell>{item.id}</TableCell>
+                           <TableCell>{item.firstName}</TableCell>
+                           <TableCell>{item.lastName}</TableCell>
                            <TableCell otherClasses='max-sm:hidden'>
-                              {user.email}
+                              {item.email}
                            </TableCell>
                         </TableRow>
                      );
