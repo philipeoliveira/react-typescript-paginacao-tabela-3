@@ -7,18 +7,7 @@ const MAX_BUTTONS = 5;
 // define o máximo de itens que serão mostrados por página
 const LIMIT_PER_PAGE = 5;
 
-/* interface DataItem<T> {
-   [key: string]: T;
-   <T, U extends DataItem<T>>(data: U[])
-} */
-interface Post {
-   userId: number;
-   id: number;
-   title: string;
-   body: string;
-}
-
-export function usePagination(allData: Post[]) {
+export function usePagination<T>(allData: T[]) {
    const [currentPage, setCurrentPage] = useState(1);
    const [limitPerPage, setLimitPerPage] = useState(LIMIT_PER_PAGE);
 
