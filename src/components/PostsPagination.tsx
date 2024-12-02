@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
-import { usePosts } from '../hooks/usePosts';
-
+import { useFetchData } from '../hooks/useFetchData';
 import { usePagination } from '../hooks/usePagination';
 import { Pagination } from './Pagination';
 
@@ -10,8 +9,23 @@ import { TableHeader } from './table/TableHeader';
 import { TableCell } from './table/TableCell';
 import { TableRow } from './table/TableRow';
 
+interface Post {
+   userId: number;
+   id: number;
+   title: string;
+   body: string;
+   [key: string]: string | number;
+}
+
+interface DataProps {
+   allData: Post[];
+   getAllData: () => void;
+   getData: (LIMIT_PER_PAGE: number, currentPage: number) => void;
+   data: Post[];
+}
+
 export function PostsPagination() {
-   const { allPosts, getAllPosts, getPosts, posts } = usePosts();
+   const { allData, getAllData, getData, data }: DataProps = useFetchData();
    const {
       currentPage,
       limitPerPage,
@@ -20,14 +34,14 @@ export function PostsPagination() {
       handleItemsPerPage,
       firstButton,
       handlePagination,
-   } = usePagination(allPosts);
+   } = usePagination(allData);
 
    useEffect(() => {
-      getAllPosts();
+      getAllData();
    }, []);
 
    useEffect(() => {
-      getPosts(limitPerPage, currentPage);
+      getData(limitPerPage, currentPage);
    }, [currentPage]);
 
    return (
@@ -41,7 +55,7 @@ export function PostsPagination() {
                </TableRow>
             </thead>
             <tbody>
-               {posts.map((item) => {
+               {data.map((item) => {
                   return (
                      <TableRow key={item.id}>
                         <TableCell>{item.id}</TableCell>
@@ -54,7 +68,7 @@ export function PostsPagination() {
             <tfoot>
                <tr>
                   <TableCell colSpan={2} otherClasses='text-sm'>
-                     {limitPerPage} de {posts.length} itens
+                     {limitPerPage} de {data.length} itens
                   </TableCell>
 
                   <TableCell colSpan={2} otherClasses='text-sm text-right'>
