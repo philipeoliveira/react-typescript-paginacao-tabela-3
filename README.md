@@ -2,14 +2,14 @@
 
 Código em React com Tailwind CSS e TypeScript que cria paginação de dados em uma tabela contendo uma quantidade configurável de botões numéricos.
 
-Os dados das páginas são fictícios, criados pela biblioteca fakerjs.
+Os dados das páginas são fictícios, obtidos da API pública JSONPlaceholder. Esta biblioteca permite a paginação pelo back-end através de um end-point.
 
 Bibliotecas:
 
 -  Tailwind CSS
 -  Tailwind Merge
 -  Lucide (ícones)
--  Fakerjs (dados)
+-  JSONPlaceholder (dados)
 
 _Obs.: Criado com a base da instalação do React com o Vite._
 
