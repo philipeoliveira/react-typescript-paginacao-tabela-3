@@ -1,23 +1,16 @@
 import { useState } from 'react';
 
-interface Post {
-   userId: number;
-   id: number;
-   title: string;
-   body: string;
-}
+export function useFetchData() {
+   const [allData, setAllData] = useState([]);
+   const [data, setData] = useState([]);
 
-export function usePosts() {
-   const [allPosts, setAllPosts] = useState<Post[]>([]);
-   const [posts, setPosts] = useState<Post[]>([]);
-
-   async function getAllPosts() {
+   async function getAllData() {
       const response = await fetch('https://jsonplaceholder.typicode.com/posts');
       const data = await response.json();
-      setAllPosts(data);
+      setAllData(data);
    }
 
-   async function getPosts(LIMIT_PER_PAGE: number, currentPage: number) {
+   async function getData(LIMIT_PER_PAGE: number, currentPage: number) {
       const start =
          (currentPage - 1) * LIMIT_PER_PAGE <= 0 ? 0 : (currentPage - 1) * LIMIT_PER_PAGE;
 
@@ -25,8 +18,8 @@ export function usePosts() {
          `https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=${LIMIT_PER_PAGE}`
       );
       const data = await response.json();
-      setPosts(data);
+      setData(data);
    }
 
-   return { allPosts, posts, getAllPosts, getPosts };
+   return { allData, data, getAllData, getData };
 }
