@@ -9,7 +9,6 @@ Bibliotecas:
 -  Tailwind CSS
 -  Tailwind Merge
 -  Lucide (ícones)
--  JSONPlaceholder (dados)
 
 _Obs.: Criado com a base da instalação do React com o Vite._
 
