@@ -42,7 +42,7 @@ export function PostsPagination() {
 
    useEffect(() => {
       getData(limitPerPage, currentPage);
-   }, [currentPage]);
+   }, [limitPerPage, currentPage]);
 
    return (
       <>
@@ -68,7 +68,7 @@ export function PostsPagination() {
             <tfoot>
                <tr>
                   <TableCell colSpan={2} otherClasses='text-sm'>
-                     {data.length} de {limitPerPage} itens
+                     {data.length} de {allData.length} itens
                   </TableCell>
 
                   <TableCell colSpan={2} otherClasses='text-sm text-right'>
