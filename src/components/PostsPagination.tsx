@@ -68,7 +68,7 @@ export function PostsPagination() {
             <tfoot>
                <tr>
                   <TableCell colSpan={2} otherClasses='text-sm'>
-                     {limitPerPage} de {data.length} itens
+                     {data.length} de {limitPerPage} itens
                   </TableCell>
 
                   <TableCell colSpan={2} otherClasses='text-sm text-right'>
