@@ -23,7 +23,7 @@ export function Pagination({ pagination }: { pagination: PaginationProps }) {
    } = pagination;
 
    return (
-      <div className='flex items-center justify-between px-3'>
+      <div className='flex max-md:flex-col max-md:gap-6 items-center justify-between px-3'>
          <div className='flex items-center gap-3'>
             Itens por página:
             <select
@@ -39,11 +39,16 @@ export function Pagination({ pagination }: { pagination: PaginationProps }) {
                <option value='20'>20</option>
             </select>
          </div>
-         <ul className='flex gap-1 justify-center flex-wrap'>
+         <ul className='flex items-center gap-1 justify-center flex-wrap'>
             <li>
-               <Button onClick={() => handlePagination(1)} isDisabled={1 === currentPage}>
+               <Button
+                  onClick={() => handlePagination(1)}
+                  isDisabled={1 === currentPage}
+                  title={'Primeira página'}
+                  aria-label={'Primeira página'}
+               >
                   <ChevronsLeft size={14} />
-                  Primeira
+                  <span className='max-md:hidden'>Primeira</span>
                </Button>
             </li>
             {Array.from({ length: totalButtons }).map((_, index) => {
@@ -53,6 +58,8 @@ export function Pagination({ pagination }: { pagination: PaginationProps }) {
                      <Button
                         onClick={() => handlePagination(pageNumber)}
                         isDisabled={pageNumber === currentPage}
+                        title={`Página ${pageNumber.toString()}`}
+                        aria-label={`Página ${pageNumber.toString()}`}
                      >
                         {pageNumber}
                      </Button>
@@ -63,8 +70,10 @@ export function Pagination({ pagination }: { pagination: PaginationProps }) {
                <Button
                   onClick={() => handlePagination(totalPages)}
                   isDisabled={totalPages === currentPage}
+                  title={`Página ${totalPages.toString()}`}
+                  aria-label={`Página ${totalPages.toString()}`}
                >
-                  Última
+                  <span className='max-md:hidden'>Última</span>
                   <ChevronsRight size={14} />
                </Button>
             </li>

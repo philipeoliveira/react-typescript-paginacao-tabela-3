@@ -60,19 +60,18 @@ export function PostsPagination() {
                      <TableRow key={item.id}>
                         <TableCell>{item.id}</TableCell>
                         <TableCell>{item.title}</TableCell>
-                        <TableCell>{item.body}</TableCell>
+                        <TableCell otherClasses='max-sm:hidden'>{item.body}</TableCell>
                      </TableRow>
                   );
                })}
             </tbody>
             <tfoot>
                <tr>
-                  <TableCell colSpan={2} otherClasses='text-sm'>
-                     {data.length} de {allData.length} itens
-                  </TableCell>
-
-                  <TableCell colSpan={2} otherClasses='text-sm text-right'>
-                     <div className='flex max-sm:flex-col items-center justify-end gap-4 py-3'>
+                  <TableCell colSpan={3} otherClasses='text-sm'>
+                     <div className='flex justify-between gap-4 py-3'>
+                        <span>
+                           {data.length} de {allData.length} itens
+                        </span>
                         <span>
                            Página {currentPage} de {totalPages}
                         </span>
